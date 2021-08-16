@@ -19,7 +19,7 @@ export default function Confirmation() {
         <Title>Prontinho!</Title>
         <SubTitle>Agora vamos começar a cuidar das suas plantinhas com muito cuidado.</SubTitle>
         <Footer>
-          <Button title='Confirmar'/>
+          <Button title='Começar'/>
         </Footer>
       </Content>
     </Container>

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import AppLoading from 'expo-app-loading';
-import Welcome from './src/pages/Welcome';
-import UserIdentification from './src/pages/UserIdentification';
-import Confirmation from './src/pages/Confirmation';
+import Routes from './src/routes';
 
 import {
   useFonts,
@@ -21,9 +19,7 @@ const App = () =>{
     return <AppLoading />;
 
   return (
-    // <Welcome />
-    // <UserIdentification />
-    <Confirmation />
+    <Routes />
   );
 };
 

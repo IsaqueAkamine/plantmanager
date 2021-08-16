@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
 import wateringImg  from '../../assets/watering.png';
@@ -13,6 +14,11 @@ import {
 } from './styles';
 
 export default function Welcome(){
+  const navigation = useNavigation();
+
+  function handleStart(){
+    navigation.navigate('UserIdentification');
+  }
 
   return(
     <Container>
@@ -33,7 +39,7 @@ export default function Welcome(){
           Nós cuidamos de lembrar você sempre que precisar
         </SubTitle>
 
-        <Button>
+        <Button onPress={handleStart}>
           <ButtonIcon name="chevron-right"/>
         </Button>
       </Wrapper>

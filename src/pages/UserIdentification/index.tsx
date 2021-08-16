@@ -1,6 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
-import { Platform, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import Button from '../../components/Button';
 
@@ -16,9 +16,15 @@ import { Container,
 } from './styles';
 
 export default function UserIdentification() {
+  const navigation = useNavigation();
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [name, setName] = useState<string>();
+
+
+  function handleSubmit(){
+    navigation.navigate('Confirmation');
+  }
 
   function handleInputBlur() {
     setIsFocused(false);
@@ -55,7 +61,7 @@ export default function UserIdentification() {
               onChangeText={handleInputChange}
             />
             <Footer>
-              <Button title="Confirmar" />
+              <Button title="Confirmar" onPress={handleSubmit}/>
             </Footer>
           </Form>
         </Content>
