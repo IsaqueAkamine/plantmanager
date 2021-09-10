@@ -26,7 +26,7 @@ export default function Welcome(){
         <Title>
           Gerencie {'\n'}
           suas plantas de {'\n'}
-          forma fácil
+          forma fácil.
         </Title>
 
         <Image 
