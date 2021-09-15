@@ -19,8 +19,14 @@ if (window.server) {
 
 window.server = createServer({
   routes() {
+    this.get('/api/plants_water_frequencies', () => {
+      return apiPlants.plants_water_frequencies;
+    });
+    this.get('/api/plants_environments', () => {
+      return apiPlants.plants_environments;
+    });
     this.get('/api/plants', () => {
-      return apiPlants;
+      return apiPlants.plants;
     });
   },
 });
