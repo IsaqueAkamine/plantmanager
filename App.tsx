@@ -5,6 +5,7 @@ import AppLoading from 'expo-app-loading';
 import { createServer } from 'miragejs';
 
 import Routes from './src/routes';
+import apiPlants from './src/services/server';
 
 import {
   useFonts,
@@ -12,18 +13,16 @@ import {
   Jost_600SemiBold
 } from '@expo-google-fonts/jost';
 
-createServer({
+if (window.server) {
+  server.shutdown();
+}
+
+window.server = createServer({
   routes() {
-    this.namespace = 'api';
-    this.get('/transactions', () => {
-      return [
-        {
-          id: 1,
-          title: 'teste',
-        }
-      ];
+    this.get('/api/plants', () => {
+      return apiPlants;
     });
-  }
+  },
 });
 
 const App = () =>{

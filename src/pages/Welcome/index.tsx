@@ -13,7 +13,7 @@ import {
   ButtonIcon
 } from './styles';
 
-export default function Welcome(){
+export default function Welcome(): JSX.Element {
   const navigation = useNavigation();
 
   function handleStart(){
