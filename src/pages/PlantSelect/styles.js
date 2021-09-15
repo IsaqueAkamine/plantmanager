@@ -27,6 +27,12 @@ export const SubTitle = styled.Text`
     color: ${colors.heading};
 `;
 
-export const ListContainer = styled.View`
+export const ListEnvironments = styled.View`
 
+`;
+
+export const ListPlants = styled.View`
+    flex: 1;
+    padding: 0 32px;
+    justify-content: center;
 `;

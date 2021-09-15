@@ -12,7 +12,7 @@ export const Container = styled(RectButton)`
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    margin-right: 5px;
+    margin: 5px;
 `;    
 
 export const Title = styled.Text`

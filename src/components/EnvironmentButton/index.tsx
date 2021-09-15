@@ -1,7 +1,7 @@
 import React from 'react';
 import { RectButtonProps } from 'react-native-gesture-handler';
 
-import { 
+import {
   Container,
   Title,
 } from './styles';
@@ -17,7 +17,7 @@ export function EnvironmentButton({
   ...rest
 }: EnvironmentButtonProps): JSX.Element {
   return(
-    <Container active={active} rest>
+    <Container active={active} {...rest}>
       <Title active={active}>
         {title}
       </Title>

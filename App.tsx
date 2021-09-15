@@ -19,13 +19,16 @@ if (window.server) {
 
 window.server = createServer({
   routes() {
-    this.get('/api/plants_water_frequencies', () => {
+    this.namespace = '/api';
+    this.passthrough('https://storage.googleapis.com/*');
+
+    this.get('/plants_water_frequencies', () => {
       return apiPlants.plants_water_frequencies;
     });
-    this.get('/api/plants_environments', () => {
+    this.get('/plants_environments', () => {
       return apiPlants.plants_environments;
     });
-    this.get('/api/plants', () => {
+    this.get('/plants', () => {
       return apiPlants.plants;
     });
   },
