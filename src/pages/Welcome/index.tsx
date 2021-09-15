@@ -1,7 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import wateringImg  from '../../assets/watering.png';
+import { api } from '../../services/api';
 
 import { 
   Container,
@@ -19,7 +20,7 @@ export default function Welcome(): JSX.Element {
   function handleStart(){
     navigation.navigate('UserIdentification');
   }
-
+  
   return(
     <Container>
       <Wrapper>
