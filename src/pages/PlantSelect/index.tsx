@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     paddingBottom: 5,
-    marginLeft: 32,
+    paddingHorizontal: 32,
     marginVertical: 32
   }
 });

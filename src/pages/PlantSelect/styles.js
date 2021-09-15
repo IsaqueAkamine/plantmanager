@@ -27,9 +27,7 @@ export const SubTitle = styled.Text`
     color: ${colors.heading};
 `;
 
-export const ListEnvironments = styled.View`
-
-`;
+export const ListEnvironments = styled.View``;
 
 export const ListPlants = styled.View`
     flex: 1;
