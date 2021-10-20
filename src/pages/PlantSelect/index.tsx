@@ -36,10 +36,19 @@ interface PlantProps {
 export default function PlantSelect(): JSX.Element {
   const [environments, setEnvironments] = useState<EnvironmentProps[]>([]);
   const [plants, setPlants] = useState<PlantProps[]>([]);
+  const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
   const [environmentSelected, setEnvironmentSelected] = useState('all');
 
   function handleEnvironmentSelected(environment: string) {
     setEnvironmentSelected(environment);
+
+    if ( environment === 'all') 
+      return setFilteredPlants(plants);
+
+    const filtered = plants.filter(plant => 
+      plant.environments.includes(environment)
+    );
+    setFilteredPlants(filtered);
   }
 
   useEffect(() => {
@@ -81,6 +90,7 @@ export default function PlantSelect(): JSX.Element {
             }
           );
           setPlants(sortedList);
+          setFilteredPlants(sortedList);
         });
     }
     getPlants();
@@ -117,7 +127,7 @@ export default function PlantSelect(): JSX.Element {
 
       <ListPlants>
         <FlatList
-          data={plants}
+          data={filteredPlants}
           renderItem={({ item }) => (
             <PlantCardPrimary data={item}/>
           )}
