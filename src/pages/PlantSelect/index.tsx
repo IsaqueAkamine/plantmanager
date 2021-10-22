@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import { api } from '../../services/api';
 
@@ -41,6 +42,8 @@ export default function PlantSelect(): JSX.Element {
   const [environmentSelected, setEnvironmentSelected] = useState('all');
   const [loading, setLoading] = useState(true);
 
+  const navigation = useNavigation();
+
   function handleEnvironmentSelected(environment: string) {
     setEnvironmentSelected(environment);
 
@@ -51,6 +54,10 @@ export default function PlantSelect(): JSX.Element {
       plant.environments.includes(environment)
     );
     setFilteredPlants(filtered);
+  }
+
+  function handlePlantSelect(plant: PlantProps){
+    navigation.navigate('PlantSave');
   }
 
   useEffect(() => {
@@ -140,7 +147,10 @@ export default function PlantSelect(): JSX.Element {
           data={filteredPlants}
           keyExtractor={(item)=> String(item.id)}
           renderItem={({ item }) => (
-            <PlantCardPrimary data={item}/>
+            <PlantCardPrimary 
+              data={item}
+              onPress={() => handlePlantSelect(item)}
+            />
           )}
           showsVerticalScrollIndicator={false}
           numColumns={2}
