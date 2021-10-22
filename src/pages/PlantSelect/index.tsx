@@ -121,6 +121,7 @@ export default function PlantSelect(): JSX.Element {
       <ListEnvironments>
         <FlatList
           data={environments}
+          keyExtractor={(item)=> String(item.key)}
           renderItem={({ item }) => (
             <EnvironmentButton 
               title={item.title}
@@ -137,6 +138,7 @@ export default function PlantSelect(): JSX.Element {
       <ListPlants>
         <FlatList
           data={filteredPlants}
+          keyExtractor={(item)=> String(item.id)}
           renderItem={({ item }) => (
             <PlantCardPrimary data={item}/>
           )}
