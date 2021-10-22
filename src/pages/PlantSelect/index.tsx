@@ -57,7 +57,7 @@ export default function PlantSelect(): JSX.Element {
   }
 
   function handlePlantSelect(plant: PlantProps){
-    navigation.navigate('PlantSave');
+    navigation.navigate('PlantSave', { plant });
   }
 
   useEffect(() => {
@@ -162,10 +162,8 @@ export default function PlantSelect(): JSX.Element {
 
 const styles = StyleSheet.create({
   environmentList: {
-    height: 40,
     justifyContent: 'center',
-    paddingBottom: 5,
     paddingHorizontal: 32,
-    marginVertical: 32
+    marginVertical: 12,
   }
 });
