@@ -4,6 +4,7 @@ import { SvgFromUri } from 'react-native-svg';
 import { useRoute } from '@react-navigation/core';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { format, isBefore } from 'date-fns';
+import { loadPlant, PlantProps, savePlant } from '../../libs/storage';
 
 import Button from '../../components/Button';
 
@@ -23,18 +24,7 @@ import {
 } from './styles';
 
 interface Params {
-  plant: {
-    id: string;
-    name: string;
-    about: string;
-    water_tips: string;
-    photo: string;
-    environments: [string];
-    frequency: {
-      times: number;
-      repeat_every: string;
-    }
-  }
+  plant: PlantProps
 }
 
 export function PlantSave():JSX.Element {
@@ -59,6 +49,22 @@ export function PlantSave():JSX.Element {
 
   function handleOpenDateTimePickerForAndroid(){
     setShowDatePicker(oldState => !oldState);
+  }
+
+  async function handleSave(){
+    const data = await loadPlant();
+    return console.log('plantas: ', data);
+
+    try {
+      await savePlant({
+        ...plant,
+        dateTimeNotification: selectedDateTime
+      });
+
+
+    } catch (error) {
+      Alert.alert('Não foi possível salvar. 🥲');
+    }
   }
 
   return (
@@ -100,7 +106,7 @@ export function PlantSave():JSX.Element {
 
         <Button 
           title="Cadastrar planta"
-          onPress={()=>{}}
+          onPress={()=>{handleSave;}}
         />
       </Controller>
     </Container>
